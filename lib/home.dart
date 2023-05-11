@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'debuts.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -25,10 +26,13 @@ class HomePage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          // add functionality here
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DebutsPage()),
+                          );
                         },
                         child: Text(
-                          'Debute database',
+                          'Debuts database',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
