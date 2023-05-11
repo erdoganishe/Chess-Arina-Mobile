@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 
 class RegistrationPage extends StatelessWidget {
   @override
@@ -38,7 +39,12 @@ class RegistrationPage extends StatelessWidget {
           ),
           SizedBox(height: 50),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
             child: Text(
               'Login',
               style: TextStyle(fontSize: 20),
