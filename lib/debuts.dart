@@ -42,7 +42,7 @@ class DebutsPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NewPage(inputString: debuts[index]),
+                      builder: (context) => NewPage(inputString: debuts[index], number: index,),
                     ),
                   );
                 },
