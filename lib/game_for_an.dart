@@ -145,6 +145,7 @@ class GameDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text('Game Details'),
@@ -152,33 +153,44 @@ class GameDetailsPage extends StatelessWidget {
       ),
       body: Container(
         color: Color(0xffffda79),
-        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Date: ${dataArray[index]['date']}',
-              style: TextStyle(fontSize: 24.0),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              'Time: ${dataArray[index]['time']}',
-              style: TextStyle(fontSize: 24.0),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              'Side: ${dataArray[index]['side']}',
-              style: TextStyle(fontSize: 24.0),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              'Opponent: ${dataArray[index]['opponent']}',
-              style: TextStyle(fontSize: 24.0),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              'Result: ${dataArray[index]['result']}',
-              style: TextStyle(fontSize: 24.0),
+            Container(
+              width: screenWidth, // Задаємо ширину контейнера
+              padding: EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Color(0xffcc8e35),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Date: ${dataArray[index]['date']}',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 8.0),
+                  Text(
+                    'Time: ${dataArray[index]['time']}',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 8.0),
+                  Text(
+                    'Side: ${dataArray[index]['side']}',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 8.0),
+                  Text(
+                    'Opponent: ${dataArray[index]['opponent']}',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                  SizedBox(height: 8.0),
+                  Text(
+                    'Result: ${dataArray[index]['result']}',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 16.0),
             Text(
@@ -195,7 +207,6 @@ class GameDetailsPage extends StatelessWidget {
                 },
               ),
             ),
-            
           ],
         ),
       ),
