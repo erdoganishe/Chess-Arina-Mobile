@@ -24,6 +24,59 @@ List<Map<String, String>> dataArray = [
   },
 ];
 
+List<List<String>> chessMoves = [
+  [
+    '1. e4 e5',
+    '2. Nf3 Nc6',
+    '3. Bb5 a6',
+    '4. Ba4 Nf6',
+    '5. O-O Be7',
+    '6. Re1 b5',
+    '7. Bb3 d6',
+    '8. c3 O-O',
+    '9. h3 Nb8',
+    '10. d4 Nbd7',
+    '11. Nbd2 Bb7',
+    '12. Bc2 Re8',
+    '13. Nf1 Bf8',
+    '14. Ng3 g6',
+    '15. Bg5'
+  ],
+  [
+    '1. e4 c5',
+    '2. Nf3 d6',
+    '3. d4 cxd4',
+    '4. Nxd4 Nf6',
+    '5. Nc3 a6',
+    '6. Bg5 e6',
+    '7. f4 Be7',
+    '8. Qf3 Qc7',
+    '9. O-O-O Nbd7',
+    '10. g4 b5',
+    '11. Bxf6 Nxf6',
+    '12. g5 Nd7',
+    '13. f5 Bxg5+',
+    '14. Kb1 O-O',
+    '15. fxe6'
+  ],
+  [
+    '1. d4 Nf6',
+    '2. c4 e6',
+    '3. Nf3 d5',
+    '4. Nc3 c6',
+    '5. e3 Nbd7',
+    '6. Qc2 Bd6',
+    '7. g4 h6',
+    '8. Rg1 e5',
+    '9. cxd5 Nxd5',
+    '10. Bd2 Qe7',
+    '11. O-O-O Nxc3',
+    '12. Bxc3 e4',
+    '13. Nd2 Nf6',
+    '14. g5 hxg5',
+    '15. Rxg5'
+  ],
+];
 class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
