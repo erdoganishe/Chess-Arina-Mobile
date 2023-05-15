@@ -77,6 +77,7 @@ List<List<String>> chessMoves = [
     '15. Rxg5'
   ],
 ];
+
 class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -95,7 +96,7 @@ class GamePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => GameDetailsPage(index),
+                    builder: (context) => GameDetailsPage(index: index),
                   ),
                 );
               },
@@ -140,25 +141,61 @@ class GamePage extends StatelessWidget {
 class GameDetailsPage extends StatelessWidget {
   final int index;
 
-  GameDetailsPage(this.index);
+  GameDetailsPage({required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Game Details'),
+        backgroundColor: Color(0xffcc8e35),
       ),
       body: Container(
         color: Color(0xffffda79),
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Date: ${dataArray[index]['date']}'),
-            Text('Time: ${dataArray[index]['time']}'),
-            Text('Side: ${dataArray[index]['side']}'),
-            Text('Opponent: ${dataArray[index]['opponent']}'),
-            Text('Result: ${dataArray[index]['result']}'),
+            Text(
+              'Date: ${dataArray[index]['date']}',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              'Time: ${dataArray[index]['time']}',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              'Side: ${dataArray[index]['side']}',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              'Opponent: ${dataArray[index]['opponent']}',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              'Result: ${dataArray[index]['result']}',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Moves:',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: chessMoves[index].length,
+                itemBuilder: (context, moveIndex) {
+                  return ListTile(
+                    title: Text(chessMoves[index][moveIndex]),
+                  );
+                },
+              ),
+            ),
+            
           ],
         ),
       ),
