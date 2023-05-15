@@ -30,6 +30,7 @@ class GamePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Game Analysis'),
+        backgroundColor: Color(0xffcc8e35), // Зміна кольору верхньої панелі
       ),
       body: Container(
         color: Color(0xffffda79),
@@ -52,11 +53,26 @@ class GamePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Date: ${dataArray[index]['date']}'),
-                    Text('Time: ${dataArray[index]['time']}'),
-                    Text('Side: ${dataArray[index]['side']}'),
-                    Text('Opponent: ${dataArray[index]['opponent']}'),
-                    Text('Result: ${dataArray[index]['result']}'),
+                    Text(
+                      'Date: ${dataArray[index]['date']}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
+                    Text(
+                      'Time: ${dataArray[index]['time']}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
+                    Text(
+                      'Side: ${dataArray[index]['side']}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
+                    Text(
+                      'Opponent: ${dataArray[index]['opponent']}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
+                    Text(
+                      'Result: ${dataArray[index]['result']}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
                   ],
                 ),
               ),
