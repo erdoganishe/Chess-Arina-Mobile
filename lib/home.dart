@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'debuts.dart';
-
+import 'game_for_an.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,10 @@ class HomePage extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          // add functionality here
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => GamePage()),
+                          );
                         },
                         child: Text(
                           'Analys',
