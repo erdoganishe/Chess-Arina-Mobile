@@ -14,7 +14,7 @@ class _NewPageState extends State<NewPage> {
   List<GlobalKey> _imageKeys = List.generate(4, (_) => GlobalKey());
 
   int index = 0;
-
+  List<String> moves = ["1.e4", "1.c6","2.d4","2.d5","3.Nc3","3.Nf6","4.e5","4.Nfd7"]; 
   @override
   Widget build(BuildContext context) {
     images = [
@@ -27,6 +27,7 @@ class _NewPageState extends State<NewPage> {
       '${widget.inputString}7.png',
       '${widget.inputString}8.png',
     ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.inputString),
@@ -49,7 +50,7 @@ class _NewPageState extends State<NewPage> {
                           key: _imageKeys[0],
                         ),
                         Text(
-                          '1.e4',
+                          moves[index],
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -68,7 +69,7 @@ class _NewPageState extends State<NewPage> {
                           fit: BoxFit.contain,
                         ),
                         Text(
-                          '1.c6',
+                          moves[index+1],
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -93,7 +94,7 @@ class _NewPageState extends State<NewPage> {
                           fit: BoxFit.contain,
                         ),
                         Text(
-                          '2.d4',
+                          moves[index+2],
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -112,7 +113,7 @@ class _NewPageState extends State<NewPage> {
                           fit: BoxFit.contain,
                         ),
                         Text(
-                          '2.d5',
+                          moves[index+3],
                           textAlign: TextAlign.center,
                         ),
                       ],
