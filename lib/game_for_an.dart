@@ -201,8 +201,12 @@ class GameDetailsPage extends StatelessWidget {
               child: ListView.builder(
                 itemCount: chessMoves[index].length,
                 itemBuilder: (context, moveIndex) {
-                  return ListTile(
-                    title: Text(chessMoves[index][moveIndex]),
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: 0.0), // Задаємо інтервал між строками
+                    child: ListTile(
+                      title: Text(chessMoves[index][moveIndex]),
+                    ),
                   );
                 },
               ),
