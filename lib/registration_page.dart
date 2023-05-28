@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'auth/login.dart';
 import 'home.dart';
 
 class RegistrationPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class RegistrationPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'Welcome!',
             style: TextStyle(
               fontSize: 30,
@@ -17,9 +18,9 @@ class RegistrationPage extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          SizedBox(height: 50),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+          const SizedBox(height: 50),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Username',
@@ -27,9 +28,9 @@ class RegistrationPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 30),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+          const SizedBox(height: 30),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -37,7 +38,7 @@ class RegistrationPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
@@ -45,16 +46,15 @@ class RegistrationPage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
-            child: Text(
-              'Login',
-              style: TextStyle(fontSize: 20),
-            ),
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFcc8e35), // колір фону
-              onPrimary: Colors.white, // колір тексту
+              foregroundColor: Colors.white, backgroundColor: const Color(0xFFcc8e35), // колір тексту
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
+            ),
+            child: const Text(
+              'Login',
+              style: TextStyle(fontSize: 20),
             ),
           ),
         ],
