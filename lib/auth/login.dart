@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> login(String email, String password) async {
   try {
     // Make sure to replace 'your-login-endpoint' with your actual login endpoint URL
-    final url = Uri.parse('127.0.0.1:3000/auth/login');
+    final url = Uri.parse('127.0.0.1:3000/auth/login-mobile');
 
     final response = await http.post(
       url,
