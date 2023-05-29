@@ -7,7 +7,7 @@ Future<bool> login(String email, String password) async {
     print(email);
     print(password);
     // Make sure to replace 'your-login-endpoint' with your actual login endpoint URL
-    final url = Uri.parse('http://25.71.143.220:3000/auth/login-mobile');
+    final url = Uri.parse('https://chess-arena-3.onrender.com/auth/login-mobile');
 
     final response = await http.post(
       url,

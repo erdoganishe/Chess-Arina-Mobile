@@ -13,7 +13,7 @@ Future<void> makeAuthenticatedRequest(String URL) async {
   if (accessToken.isNotEmpty) {
     try {
       // Make sure to replace 'your-authenticated-endpoint' with the actual URL of your authenticated endpoint
-      final url = Uri.parse('127.0.0.1:3000$URL');
+      final url = Uri.parse('https://chess-arena-3.onrender.com$URL');
 
       final response = await http.get(
         url,
@@ -61,7 +61,7 @@ Future<List<GameDetails>> getGameDetails() async {
   if (accessToken.isNotEmpty) {
     try {
       // Make sure to replace 'your-authenticated-endpoint' with the actual URL of your authenticated endpoint
-      final url = Uri.parse('http://25.71.143.220:3000/game-mobile');
+      final url = Uri.parse('https://chess-arena-3.onrender.com/game-mobile');
 
       final response = await http.get(
         url,
@@ -122,7 +122,7 @@ Future<UserDetails> getUserDetails(String uid) async {
   if (accessToken.isNotEmpty) {
     try {
       // Make sure to replace 'your-authenticated-endpoint' with the actual URL of your authenticated endpoint
-      final url = Uri.parse('http://25.71.143.220:3000/game-mobile/$uid');
+      final url = Uri.parse('https://chess-arena-3.onrender.com/game-mobile/$uid');
 
       final response = await http.get(
         url,
