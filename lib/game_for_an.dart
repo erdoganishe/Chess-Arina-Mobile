@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'auth/makeAuthReq.dart';
 
 List<Map<String, String>> dataArray = [
   {
@@ -78,7 +79,27 @@ List<List<String>> chessMoves = [
   ],
 ];
 
-class GamePage extends StatelessWidget {
+class GamePage extends StatefulWidget {
+  @override
+  State<GamePage> createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  GameDetails gd = GameDetails();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchGameDetails();
+  }
+
+  Future<void> fetchGameDetails() async {
+    final gameDetails = await getGameDetails();
+    setState(() {
+      gd = gameDetails;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
