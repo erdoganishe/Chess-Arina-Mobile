@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'auth/login.dart';
 import 'home.dart';
 
-class RegistrationPage extends StatelessWidget {
+class RegistrationPage extends StatefulWidget {
+  @override
+  State<RegistrationPage> createState() => _RegistrationPageState();
+}
+
+class _RegistrationPageState extends State<RegistrationPage> {
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,35 +28,45 @@ class RegistrationPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 50),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Username',
                 border: OutlineInputBorder(),
               ),
+              controller: emailController,
             ),
           ),
           const SizedBox(height: 30),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
+              controller: passwordController,
             ),
           ),
           const SizedBox(height: 50),
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomePage()),
-              );
+            onPressed: () async {
+              // ignore: unrelated_type_equality_checks
+              final isLoggedIn =
+                  await login(emailController.text, passwordController.text);
+              if (isLoggedIn) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              } else {
+                print("Wrong password");
+              }
             },
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, backgroundColor: const Color(0xFFcc8e35), // колір тексту
+              foregroundColor: Colors.white,
+              backgroundColor: const Color(0xFFcc8e35), // колір тексту
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
