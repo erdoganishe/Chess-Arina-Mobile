@@ -61,7 +61,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   MaterialPageRoute(builder: (context) => HomePage()),
                 );
               } else {
-                print("Wrong password");
+                  showWrongDialog(context);
               }
             },
             style: ElevatedButton.styleFrom(
@@ -79,5 +79,30 @@ class _RegistrationPageState extends State<RegistrationPage> {
         ],
       ),
     );
+  }
+
+  Future<String?> showWrongDialog(BuildContext context) {
+    return showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => Dialog(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Text('Wrong login or password'),
+                          const SizedBox(height: 15),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Close'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
   }
 }

@@ -78,6 +78,7 @@ List<List<String>> chessMoves = [
     '15. Rxg5'
   ],
 ];
+List<GameDetails> gd = [];
 
 class GamePage extends StatefulWidget {
   @override
@@ -85,7 +86,7 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  GameDetails gd = GameDetails();
+  
 
   @override
   void initState() {
@@ -97,6 +98,7 @@ class _GamePageState extends State<GamePage> {
     final gameDetails = await getGameDetails();
     setState(() {
       gd = gameDetails;
+      print(gd);
     });
   }
 
@@ -110,7 +112,7 @@ class _GamePageState extends State<GamePage> {
       body: Container(
         color: Color(0xffffda79),
         child: ListView.builder(
-          itemCount: dataArray.length,
+          itemCount: gd.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
@@ -128,24 +130,17 @@ class _GamePageState extends State<GamePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
                     Text(
-                      'Date: ${dataArray[index]['date']}',
+                      'First player: ${gd[index].username1}',
                       style: TextStyle(fontSize: 20), // Збільшення шрифту
                     ),
                     Text(
-                      'Time: ${dataArray[index]['time']}',
+                      'Second player: ${gd[index].username2}',
                       style: TextStyle(fontSize: 20), // Збільшення шрифту
                     ),
                     Text(
-                      'Side: ${dataArray[index]['side']}',
-                      style: TextStyle(fontSize: 20), // Збільшення шрифту
-                    ),
-                    Text(
-                      'Opponent: ${dataArray[index]['opponent']}',
-                      style: TextStyle(fontSize: 20), // Збільшення шрифту
-                    ),
-                    Text(
-                      'Result: ${dataArray[index]['result']}',
+                      'Result: ${gd[index].win??"Not finished yet..."}',
                       style: TextStyle(fontSize: 20), // Збільшення шрифту
                     ),
                   ],
@@ -186,30 +181,18 @@ class GameDetailsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Date: ${dataArray[index]['date']}',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  SizedBox(height: 8.0),
-                  Text(
-                    'Time: ${dataArray[index]['time']}',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  SizedBox(height: 8.0),
-                  Text(
-                    'Side: ${dataArray[index]['side']}',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  SizedBox(height: 8.0),
-                  Text(
-                    'Opponent: ${dataArray[index]['opponent']}',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                  SizedBox(height: 8.0),
-                  Text(
-                    'Result: ${dataArray[index]['result']}',
-                    style: TextStyle(fontSize: 24.0),
-                  ),
+                    Text(
+                      'First player: ${gd[index].username1}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
+                    Text(
+                      'Second player: ${gd[index].username2}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
+                    Text(
+                      'Result: ${gd[index].win??"Not finished yet..."}',
+                      style: TextStyle(fontSize: 20), // Збільшення шрифту
+                    ),
                 ],
               ),
             ),
@@ -220,13 +203,13 @@ class GameDetailsPage extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: chessMoves[index].length,
+                itemCount: chessMoves[index%3].length,
                 itemBuilder: (context, moveIndex) {
                   return Padding(
                     padding: EdgeInsets.symmetric(
                         vertical: 0.0), // Задаємо інтервал між строками
                     child: ListTile(
-                      title: Text(chessMoves[index][moveIndex]),
+                      title: Text(chessMoves[index%3][moveIndex]),
                     ),
                   );
                 },
