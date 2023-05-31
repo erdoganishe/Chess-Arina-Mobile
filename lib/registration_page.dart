@@ -66,7 +66,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
-              backgroundColor: const Color(0xFFcc8e35), // колір тексту
+              backgroundColor: const Color(0xFFcc8e35), 
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
